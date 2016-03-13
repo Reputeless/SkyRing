@@ -11,7 +11,7 @@ void Main()
 	const Sound soundFail(L"Asset/fail.mp3");
 	const Mesh meshTerrain(MeshData::Plane(2000, { 20, 20 }));
 	const Texture textureTerrain(L"Asset/Grass.jpg", TextureDesc::For3D);
-	const Texture cloudTexture(L"Asset/c.png", TextureDesc::For3D);
+	const Texture cloudTexture(L"Asset/cloud.png", TextureDesc::For3D);
 	const VertexShader vsCloud(L"Asset/cloud.vs");
 	const PixelShader psCloud(L"Asset/cloud.ps");
 	if (!vsCloud || !psCloud)
