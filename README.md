@@ -4,6 +4,9 @@
 #### 作者  
 Reputeless (https://twitter.com/Reputeless)
 
+#### ダウンロード
+https://github.com/Reputeless/SkyRing/blob/master/SkyRing(Game).zip?raw=true
+
 #### 遊び方  
 上下左右キーで操縦してリングを通過します。  
 無限に続きます。
