@@ -1,7 +1,8 @@
-﻿# include <Siv3D.hpp>
+# include <Siv3D.hpp>
 
 void Main()
 {
+	Window::SetTitle(L"SkyRing");
 	Graphics::SetBackground(Color(10, 120, 220));
 	const Font font(14, Typeface::Heavy);
 	const Sound soundMusic(L"Asset/bgm.wav", SoundLoop::All);
@@ -55,9 +56,7 @@ void Main()
 		ringPos.z -= 3;
 		if (ringPos.z < -997)
 		{
-			const bool passed = ringPos.xy().distanceFrom(pos) < 33;
-
-			if (passed)
+			if (ringPos.xy().distanceFrom(pos) < 33)
 			{
 				soundRing.play();
 				++score;
@@ -75,7 +74,6 @@ void Main()
 		acceleration.set(Clamp(acceleration.x + dir.x, -0.01, 0.01), Clamp(acceleration.y + dir.y, -0.01, 0.01));
 		speed.set(Clamp(speed.x + acceleration.x, -1.0, 1.0), Clamp(speed.y + acceleration.y, -1.0, 1.0));
 		pos.set(Clamp(pos.x + speed.x, -480., 480.), Clamp(pos.y + speed.y, 220., 280.));
-
 		camera.pos.set(pos.x, pos.y, -1000);
 		camera.lookat.set(camera.pos + Vec3(speed.x, speed.y * 2.0 - 2.0, 10));
 		camera.up.set(speed.x * 0.1, 1.0, 0.0);
@@ -102,10 +100,7 @@ void Main()
 
 		for (auto i : step(12))
 		{
-			Box(8).asMesh()
-				.rotated(0.0, 0.0, i * -30_deg)
-				.translated(ringPos + Spherical(30, i * 30_deg, 0))
-				.drawForward(ColorF(1.0, 0.3, 0.0, 0.9));
+			Box(8).asMesh().rotated(0.0, 0.0, i * -30_deg).translated(ringPos + Spherical(30, i * 30_deg, 0)).drawForward(ColorF(1.0, 0.3, 0.0, 0.9));
 		}
 
 		Graphics3D::SetDepthStateForward(DepthState::TestOnly);
@@ -126,7 +121,6 @@ void Main()
 				cloud.color.w += 2000;
 			}
 		}
-
 		std::sort(clouds.begin(), clouds.end(), [](const auto& a, const auto& b){ return a.pos.z > b.pos.z; });
 
 		font(L"{} (ハイスコア:{})"_fmt, score, highScore).draw(10, 450, Color(255, 120));
