@@ -6,7 +6,7 @@ Reputeless (https://twitter.com/Reputeless)
 
 #### 遊び方  
 上下左右キーで操縦してリングを通過します。  
-永遠に続きます。
+無限に続きます。
 
 ![スクリーンショット](ss.png "スクリーンショット")
 
